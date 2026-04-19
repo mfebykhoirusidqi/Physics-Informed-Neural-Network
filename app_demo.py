@@ -1,15 +1,15 @@
 """
-⚛️ Physics-Informed Neural Network — Interactive Portfolio Demo
+Physics-Informed Neural Network — Interactive Portfolio Demo
 ================================================================
 A premium Streamlit application for a Physics + Computational Physics graduate.
 
 Features
 --------
-  🏠 Overview       — Hero section, metrics, architecture, applications
-  ⚛️ Simulator      — Interactive 3D/2D visualisation with parameter controls
-  🧠 Live Training  — Train a PINN in real-time and watch physics emerge
-  📊 Analysis       — Deep comparison vs analytical, error maps, profiles
-  📖 Theory         — LaTeX equations, autodiff walkthrough, references
+Overview       — Hero section, metrics, architecture, applications
+Simulator      — Interactive 3D/2D visualisation with parameter controls
+Live Training  — Train a PINN in real-time and watch physics emerge
+Analysis       — Deep comparison vs analytical, error maps, profiles
+Theory         — LaTeX equations, autodiff walkthrough, references
 
 Run:
     streamlit run app_demo.py
@@ -37,7 +37,7 @@ warnings.filterwarnings("ignore")
 
 st.set_page_config(
     page_title="PINN Demo | Physics × AI",
-    page_icon="⚛️",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -365,39 +365,39 @@ DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 with st.sidebar:
     st.markdown("""
     <div style="text-align:center;padding:1.5rem 0 1rem">
-      <div style="font-size:3rem">⚛️</div>
+      <div style="font-size:3rem"></div>
       <div style="font-size:1.05rem;font-weight:800;color:#e8f0fe;margin-top:.4rem">PINN Framework</div>
       <div style="font-size:.75rem;color:#4fc3f7;font-weight:600;margin-top:.2rem">Physics × Deep Learning</div>
     </div>
     <hr style="border-color:rgba(79,195,247,.18);margin:.5rem 0 1rem">
     """, unsafe_allow_html=True)
 
-    st.markdown("**👤 Developer : M Feby Khoiru Sidqi**")
+    st.markdown("**Developer**")
     st.markdown("""
     <div class="info-card" style="margin:.4rem 0">
-      <div>🎓 Physics Graduate</div>
-      <div>💻 Computational Physics</div>
-      <div>🤖 AI / ML Engineer</div>
+      <div>Physics Graduate</div>
+      <div>Computational Physics</div>
+      <div>AI / ML Engineer</div>
     </div>
     """, unsafe_allow_html=True)
 
     st.markdown("---")
     st.markdown("**🖥️ Device**")
-    st.info("🟢 CUDA (GPU)" if torch.cuda.is_available() else "⚙️ CPU")
+    st.info("CUDA (GPU)" if torch.cuda.is_available() else "CPU")
 
-    st.markdown("**📦 Model Status**")
+    st.markdown("**Model Status**")
     mp = "pinn_vibration_model.pth"
     if os.path.exists(mp):
         kb = os.path.getsize(mp) / 1024
-        st.success(f"✅ Trained model ({kb:.0f} KB)")
+        st.success(f"Trained model ({kb:.0f} KB)")
     else:
-        st.warning("⚠️ No saved model\nRun training first")
+        st.warning("No saved model\nRun training first")
 
     st.markdown("---")
     st.markdown("""
     <div style="font-size:.75rem;color:#546e7a;text-align:center">
       <a href="https://arxiv.org/abs/1711.10566" target="_blank"
-         style="color:#4fc3f7;text-decoration:none">📄 Raissi et al. 2019</a><br>
+         style="color:#4fc3f7;text-decoration:none">Raissi et al. 2019</a><br>
       Original PINN Paper
     </div>
     """, unsafe_allow_html=True)
@@ -408,7 +408,7 @@ with st.sidebar:
 
 st.markdown("""
 <div class="hero-wrapper">
-  <div class="hero-badge">⚛️ Computational Physics × Deep Learning</div>
+  <div class="hero-badge">Computational Physics × Deep Learning</div>
   <div class="gradient-title">Physics-Informed Neural Network</div>
   <div class="hero-sub">
     A neural network constrained by the laws of physics.<br>
@@ -421,10 +421,10 @@ st.markdown("""
 # ── Metric cards ──────────────────────────────────────────────────────────────
 c1, c2, c3, c4 = st.columns(4)
 for col, icon, val, lbl in [
-    (c1, "📉", "0.0001", "MAE vs Analytical [m]"),
-    (c2, "⚡", "&lt;1 ms", "Inference Time"),
-    (c3, "💾", "500 KB", "Model Footprint"),
-    (c4, "🔟", "10×", "Data Efficiency vs DNN"),
+    (c1, "", "0.0001", "MAE vs Analytical [m]"),
+    (c2, "", "&lt;1 ms", "Inference Time"),
+    (c3, "", "500 KB", "Model Footprint"),
+    (c4, "", "10×", "Data Efficiency vs DNN"),
 ]:
     col.markdown(
         f'<div class="metric-card"><div class="mc-icon">{icon}</div>'
@@ -439,7 +439,7 @@ st.markdown("<br>", unsafe_allow_html=True)
 # ─────────────────────────────────────────────────────────────────────────────
 
 t1, t2, t3, t4, t5 = st.tabs(
-    ["🏠 Overview", "⚛️ Simulator", "🧠 Live Training", "📊 Analysis", "📖 Theory"]
+    ["Overview", "Simulator", "Live Training", "Analysis", "Theory"]
 )
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -450,7 +450,7 @@ with t1:
     left, right = st.columns([1.15, 1], gap="large")
 
     with left:
-        st.markdown('<div class="sec-hdr"><span class="sec-hdr-icon">🎯</span><span class="sec-hdr-text">What is a PINN?</span></div><div class="sec-div"></div>', unsafe_allow_html=True)
+        st.markdown('<div class="sec-hdr"><span class="sec-hdr-icon"></span><span class="sec-hdr-text">What is a PINN?</span></div><div class="sec-div"></div>', unsafe_allow_html=True)
 
         st.markdown("""
         <div class="info-card">
@@ -464,7 +464,7 @@ with t1:
         </div>
         """, unsafe_allow_html=True)
 
-        st.markdown("**🔬 Physical Problem**")
+        st.markdown("**Physical Problem**")
         st.markdown("""
         <div class="info-card" style="border-color:rgba(124,77,255,.35)">
           <div style="font-family:'JetBrains Mono',monospace;color:#a5d6fb;font-size:.85rem">
@@ -484,7 +484,7 @@ with t1:
         </div>
         """, unsafe_allow_html=True)
 
-        st.markdown("**🏗️ Network Architecture**")
+        st.markdown("**Network Architecture**")
         st.code(
             "Input  :  [x, t]  ──  ℝ²\n"
             "         ↓\n"
@@ -499,30 +499,30 @@ with t1:
         )
 
     with right:
-        st.markdown('<div class="sec-hdr"><span class="sec-hdr-icon">⚖️</span><span class="sec-hdr-text">PINN vs Conventional Approaches</span></div><div class="sec-div"></div>', unsafe_allow_html=True)
+        st.markdown('<div class="sec-hdr"><span class="sec-hdr-icon"></span><span class="sec-hdr-text">PINN vs Conventional Approaches</span></div><div class="sec-div"></div>', unsafe_allow_html=True)
 
         import pandas as pd
         df_cmp = pd.DataFrame({
             "Aspect": ["Data needed", "Physics constraint", "Extrapolation",
                        "Interpretability", "Parameters", "Training time"],
-            "🔴 Standard DNN": ["Millions", "None (black-box)", "Poor",
+            "Standard DNN": ["Millions", "None (black-box)", "Poor",
                                 "Low", "Black-box", "Hours"],
-            "🟡 FEM / FDM": ["None (mesh)", "Full", "Good",
+            "FEM / FDM": ["None (mesh)", "Full", "Good",
                              "High", "Prescribed", "Minutes–hours"],
-            "✅ PINN (this)": ["~5 000 pts", "PDE enforced", "Good",
+            "PINN (this)": ["~5 000 pts", "PDE enforced", "Good",
                               "High", "Learned (ω₀, ζ)", "~10 min"],
         })
         st.dataframe(df_cmp.set_index("Aspect"), use_container_width=True, height=240)
 
-        st.markdown('<div class="sec-hdr" style="margin-top:1.4rem"><span class="sec-hdr-icon">🚀</span><span class="sec-hdr-text">Real-World Applications</span></div><div class="sec-div"></div>', unsafe_allow_html=True)
+        st.markdown('<div class="sec-hdr" style="margin-top:1.4rem"><span class="sec-hdr-icon"></span><span class="sec-hdr-text">Real-World Applications</span></div><div class="sec-div"></div>', unsafe_allow_html=True)
 
         for icon, title, desc in [
-            ("🏗️", "Structural Health Monitoring", "Detect damage from vibration signatures"),
-            ("✈️", "Aerospace Engineering",         "Wing flutter & aeroelastic stability"),
-            ("🌊", "Seismic Analysis",              "Earthquake wave propagation"),
-            ("♨️", "Heat Transfer",                "Thermal management in electronics"),
-            ("💧", "Fluid Dynamics",               "Navier-Stokes with scarce data"),
-            ("🔬", "Material Characterisation",    "Inverse identification of elastic moduli"),
+            ("", "Structural Health Monitoring", "Detect damage from vibration signatures"),
+            ("", "Aerospace Engineering",         "Wing flutter & aeroelastic stability"),
+            ("", "Seismic Analysis",              "Earthquake wave propagation"),
+            ("", "Heat Transfer",                "Thermal management in electronics"),
+            ("", "Fluid Dynamics",               "Navier-Stokes with scarce data"),
+            ("", "Material Characterisation",    "Inverse identification of elastic moduli"),
         ]:
             st.markdown(
                 f'<div class="feat-row"><span class="feat-icon">{icon}</span>'
@@ -533,14 +533,14 @@ with t1:
 
     # Quick-start steps
     st.markdown("---")
-    st.markdown('<div class="sec-hdr"><span class="sec-hdr-icon">🚀</span><span class="sec-hdr-text">Quick Start</span></div><div class="sec-div"></div>', unsafe_allow_html=True)
+    st.markdown('<div class="sec-hdr"><span class="sec-hdr-icon"></span><span class="sec-hdr-text">Quick Start</span></div><div class="sec-div"></div>', unsafe_allow_html=True)
 
     qa, qb, qc, qd = st.columns(4)
     for col, step, clr, cmd in [
-        (qa, "1️⃣ Install", "#4fc3f7", "pip install torch numpy\nmatplotlib scipy\nstreamlit plotly"),
-        (qb, "2️⃣ Train",   "#7c4dff", "python pinn_complete_starter.py\n# ~10 min on CPU"),
-        (qc, "3️⃣ Demo",    "#00e5ff", "streamlit run app_demo.py\n# This app!"),
-        (qd, "4️⃣ Extend",  "#ef9a9a", "python experiments/\nheat_equation_pinn.py"),
+        (qa, "Install", "#4fc3f7", "pip install torch numpy\nmatplotlib scipy\nstreamlit plotly"),
+        (qb, "Train",   "#7c4dff", "python pinn_complete_starter.py\n# ~10 min on CPU"),
+        (qc, "Demo",    "#00e5ff", "streamlit run app_demo.py\n# This app!"),
+        (qd, "Extend",  "#ef9a9a", "python experiments/\nheat_equation_pinn.py"),
     ]:
         col.markdown(
             f'<div class="info-card" style="border-color:rgba(100,100,100,.3);text-align:center">'
@@ -554,8 +554,8 @@ with t1:
 # ══════════════════════════════════════════════════════════════════════════════
 
 with t2:
-    st.markdown('<div class="sec-hdr"><span class="sec-hdr-icon">⚛️</span><span class="sec-hdr-text">Interactive Physics Simulator</span></div><div class="sec-div"></div>', unsafe_allow_html=True)
-    st.markdown('<div class="alert-box">🔬 Visualise u(x,t) — the displacement field of a damped vibrating beam. Adjust physical parameters and observe how energy dissipates in space and time.</div>', unsafe_allow_html=True)
+    st.markdown('<div class="sec-hdr"><span class="sec-hdr-icon"></span><span class="sec-hdr-text">Interactive Physics Simulator</span></div><div class="sec-div"></div>', unsafe_allow_html=True)
+    st.markdown('<div class="alert-box">Visualise u(x,t) — the displacement field of a damped vibrating beam. Adjust physical parameters and observe how energy dissipates in space and time.</div>', unsafe_allow_html=True)
 
     sc1, sc2, sc3, sc4 = st.columns(4)
     omega_0   = sc1.slider("ω₀  Natural Frequency [rad/s]", 0.1, 6.0, 1.0, 0.1)
@@ -568,11 +568,11 @@ with t2:
     tau = 1 / (zeta * omega_0) if zeta * omega_0 > 0 else float("inf")
 
     if zeta < 0.999:
-        regime, rc = f"🟢 Underdamped  (ζ={zeta:.2f}  →  oscillatory + decay)", "#4caf50"
+        regime, rc = f"Underdamped  (ζ={zeta:.2f}  →  oscillatory + decay)", "#4caf50"
     elif zeta < 1.001:
-        regime, rc = "🟡 Critically Damped  (ζ=1.00  →  fastest return)", "#ffd54f"
+        regime, rc = "Critically Damped  (ζ=1.00  →  fastest return)", "#ffd54f"
     else:
-        regime, rc = f"🔴 Overdamped  (ζ={zeta:.2f}  →  no oscillation)", "#ef5350"
+        regime, rc = f"Overdamped  (ζ={zeta:.2f}  →  no oscillation)", "#ef5350"
 
     st.markdown(
         f'<div style="background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.1);'
@@ -588,7 +588,7 @@ with t2:
     XG, TG = np.meshgrid(xg, tg)
     UG = analytical(XG, TG, omega_0, zeta, amplitude)
 
-    view = st.radio("View", ["🌐 3D Surface", "📊 2D Contour", "📈 Temporal Profiles", "🔍 All Views"],
+    view = st.radio("View", ["3D Surface", "2D Contour", "Temporal Profiles", "All Views"],
                     horizontal=True)
 
     if "3D" in view:
@@ -644,7 +644,7 @@ with t2:
     model = load_model()
     if model is not None:
         st.markdown("---")
-        st.markdown('<div class="alert-box">🤖 Saved PINN model detected — comparing prediction vs analytical below.</div>', unsafe_allow_html=True)
+        st.markdown('<div class="alert-box">Saved PINN model detected — comparing prediction vs analytical below.</div>', unsafe_allow_html=True)
 
         ω0_m = model.omega_0.item()
         ζ_m  = model.zeta.item()
@@ -671,8 +671,8 @@ with t2:
 # ══════════════════════════════════════════════════════════════════════════════
 
 with t3:
-    st.markdown('<div class="sec-hdr"><span class="sec-hdr-icon">🧠</span><span class="sec-hdr-text">Live PINN Training</span></div><div class="sec-div"></div>', unsafe_allow_html=True)
-    st.markdown('<div class="alert-box">⚡ Train a PINN in real-time. Watch physics drive the network to self-discover ω₀ and ζ from data — a live demonstration of the <em>inverse problem</em>.</div>', unsafe_allow_html=True)
+    st.markdown('<div class="sec-hdr"><span class="sec-hdr-icon"></span><span class="sec-hdr-text">Live PINN Training</span></div><div class="sec-div"></div>', unsafe_allow_html=True)
+    st.markdown('<div class="alert-box">Train a PINN in real-time. Watch physics drive the network to self-discover ω₀ and ζ from data — a live demonstration of the <em>inverse problem</em>.</div>', unsafe_allow_html=True)
 
     tr1, tr2, tr3 = st.columns(3)
     epochs_choice = tr1.select_slider("Epochs", [100, 200, 500, 1000, 2000], value=500)
@@ -689,7 +689,7 @@ with t3:
     }
     h_dim, n_lay = _arch_map[arch_choice]
 
-    if st.button("🚀 Start Training", type="primary", use_container_width=True):
+    if st.button("Start Training", type="primary", use_container_width=True):
         device_tr = DEVICE
 
         with st.spinner("Generating synthetic data …"):
@@ -777,12 +777,12 @@ with t3:
         final_ω = model_tr.omega_0.item()
         final_ζ = model_tr.zeta.item()
         st.success(
-            f"✅ Done in {elapsed:.1f}s — "
+            f"Done in {elapsed:.1f}s — "
             f"ω₀ = {final_ω:.4f} (err {abs(final_ω-1.0)*100:.2f}%) | "
             f"ζ = {final_ζ:.4f} (err {abs(final_ζ-0.05)*100:.2f}%)"
         )
 
-        if st.button("💾 Save Model to Disk", use_container_width=True):
+        if st.button("Save Model to Disk", use_container_width=True):
             torch.save(model_tr.state_dict(), "pinn_vibration_model.pth")
             st.success("Model saved as `pinn_vibration_model.pth`")
             st.rerun()
@@ -792,12 +792,12 @@ with t3:
 # ══════════════════════════════════════════════════════════════════════════════
 
 with t4:
-    st.markdown('<div class="sec-hdr"><span class="sec-hdr-icon">📊</span><span class="sec-hdr-text">Results Analysis</span></div><div class="sec-div"></div>', unsafe_allow_html=True)
+    st.markdown('<div class="sec-hdr"><span class="sec-hdr-icon"></span><span class="sec-hdr-text">Results Analysis</span></div><div class="sec-div"></div>', unsafe_allow_html=True)
 
     model = load_model()
 
     if model is None:
-        st.markdown('<div class="alert-warn">⚠️ No trained model found. Train one using the <strong>🧠 Live Training</strong> tab, or run <code>python pinn_complete_starter.py</code> in your terminal.</div>', unsafe_allow_html=True)
+        st.markdown('<div class="alert-warn">No trained model found. Train one using the <strong>Live Training</strong> tab, or run <code>python pinn_complete_starter.py</code> in your terminal.</div>', unsafe_allow_html=True)
     else:
         ω0_a = model.omega_0.item()
         ζ_a  = model.zeta.item()
@@ -861,18 +861,18 @@ with t5:
     with tc1:
         st.markdown('<div class="sec-hdr"><span class="sec-hdr-icon">📐</span><span class="sec-hdr-text">Governing Equations</span></div><div class="sec-div"></div>', unsafe_allow_html=True)
 
-        st.markdown("**1️⃣ Damped Oscillator (dimensional form)**")
+        st.markdown("**Damped Oscillator (dimensional form)**")
         st.latex(r"m\ddot{u} + c\dot{u} + ku = 0")
         st.caption("m = mass · c = damping coeff · k = stiffness")
 
-        st.markdown("**2️⃣ Normalised PDE (PINN target)**")
+        st.markdown("**Normalised PDE (PINN target)**")
         st.latex(r"\frac{\partial^2 u}{\partial t^2} + 2\zeta\omega_0\,\frac{\partial u}{\partial t} + \omega_0^2\,u = 0")
 
-        st.markdown("**3️⃣ Analytical Solution (1-D)**")
+        st.markdown("**Analytical Solution (1-D)**")
         st.latex(r"u(x,t) = A\,e^{-\zeta\omega_0 t}\cos(\omega_d t)\sin(\pi x)")
         st.latex(r"\omega_d = \omega_0\sqrt{1-\zeta^2} \quad (\text{damped frequency})")
 
-        st.markdown("**4️⃣ Multi-Component Loss Function**")
+        st.markdown("**Multi-Component Loss Function**")
         st.latex(
             r"\mathcal{L} = "
             r"\underbrace{\lambda_p\|\mathcal{N}[u]\|^2}_{\text{PDE residual}}"
@@ -886,7 +886,7 @@ with t5:
         st.latex(r"u(x,0) = A\sin(\pi x), \qquad \dot{u}(x,0)=0")
 
     with tc2:
-        st.markdown('<div class="sec-hdr"><span class="sec-hdr-icon">⚙️</span><span class="sec-hdr-text">Automatic Differentiation for PDEs</span></div><div class="sec-div"></div>', unsafe_allow_html=True)
+        st.markdown('<div class="sec-hdr"><span class="sec-hdr-icon"></span><span class="sec-hdr-text">Automatic Differentiation for PDEs</span></div><div class="sec-div"></div>', unsafe_allow_html=True)
 
         st.markdown("""
         <div class="info-card">
@@ -943,7 +943,7 @@ with t5:
 
         st.markdown("""
         <div class="info-card" style="margin-top:1rem;border-color:rgba(124,77,255,.3)">
-          <strong style="color:#7c4dff">🎓 Computational Physics Advantage</strong>
+          <strong style="color:#7c4dff">Computational Physics Advantage</strong>
           <p style="margin-top:.5rem;font-size:.88rem">
             PINN sits at the intersection of <strong>Numerical Methods</strong>
             (FEM, spectral methods, finite differences) taught in
@@ -965,12 +965,12 @@ st.markdown("""
   Portfolio project by a Physics + Computational Physics graduate<br>
   Stack: PyTorch · Plotly · Streamlit · NumPy · SciPy<br><br>
   <a href="https://arxiv.org/abs/1711.10566" target="_blank"
-     style="color:#4fc3f7;text-decoration:none">📄 Raissi et al. 2019</a>
+     style="color:#4fc3f7;text-decoration:none">Raissi et al. 2019</a>
   &nbsp;|&nbsp;
   <a href="https://deepxde.readthedocs.io/" target="_blank"
-     style="color:#4fc3f7;text-decoration:none">🔬 DeepXDE Library</a>
+     style="color:#4fc3f7;text-decoration:none">DeepXDE Library</a>
   &nbsp;|&nbsp;
   <a href="https://github.com" target="_blank"
-     style="color:#4fc3f7;text-decoration:none">💻 GitHub</a>
+     style="color:#4fc3f7;text-decoration:none">GitHub</a>
 </div>
 """, unsafe_allow_html=True)
