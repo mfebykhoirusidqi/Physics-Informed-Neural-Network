@@ -372,7 +372,7 @@ with st.sidebar:
     <hr style="border-color:rgba(79,195,247,.18);margin:.5rem 0 1rem">
     """, unsafe_allow_html=True)
 
-    st.markdown("**👤 Developer**")
+    st.markdown("**👤 Developer : M Feby Khoiru Sidqi**")
     st.markdown("""
     <div class="info-card" style="margin:.4rem 0">
       <div>🎓 Physics Graduate</div>
